@@ -62,9 +62,7 @@ export const employeeDelete = ({id}) => {
     .then(()=>{
       dispatch({type:EMPLOYEE_DELETE})
       Actions.employeeLists({type:'reset'})
-    }).catch((err) => { 
-      console.log("DELETE FAILED");
-      return dispatch({type:EMPLOYEE_DELETE_FAILED})});
+    }).catch((err) => { return dispatch({type:EMPLOYEE_DELETE_FAILED})});
   }
 }
 
