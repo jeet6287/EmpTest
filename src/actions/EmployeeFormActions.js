@@ -1,12 +1,12 @@
 import {
   EMPLOYEE_UPDATE ,
+  EMPLOYEES_FETCH_SUCCESS ,
+  EMPLOYEES_FETCH_FAILED,
   EMPLOYEE_CREATE ,
   EMPLOYEE_CREATE_FAILED,
   EMPLOYEE_DELETE ,
-  EMPLOYEES_FETCH_SUCCESS ,
-  EMPLOYEES_FETCH_FAILED,
-  EMPLOYEE_FORM_RESET,
-  EMPLOYEE_DELETE_FAILED
+  EMPLOYEE_DELETE_FAILED,
+  EMPLOYEE_FORM_RESET
 } from './types';
 
 import { Actions } from 'react-native-router-flux'; 
@@ -35,7 +35,7 @@ export const employeesFetch = () => {
 
 export const empoloyeeCreate = ({employee_name,employee_salary,employee_age}) => {
   let URL = BASE_URL + '/create';
-  var emp = {name:employee_name, salary:employee_salary, age:employee_age}
+  var emp = {name:employee_name, salary:employee_salary, age:employee_age} 
   return (dispatch) => {
      fetch(URL,{
        method:'POST',
@@ -44,7 +44,7 @@ export const empoloyeeCreate = ({employee_name,employee_salary,employee_age}) =>
      })
      .then(responce => responce.json())
      .then((result) => createEmpSuccess(dispatch,result)) 
-     .catch((e) => {return dispatch({type:EMPLOYEE_CREATE_FAILED,payload:e.message})});  
+     .catch((e) => { return dispatch({type:EMPLOYEE_CREATE_FAILED,payload:e.message})});  
   };
 }
 
@@ -53,9 +53,7 @@ const createEmpSuccess = (dispatch,emp) => {
   Actions.employeeLists({type:'reset'})
 }
 
-const createEmpFailure = (dispatch,e) => {
-  dispatch ({type:EMPLOYEE_CREATE_FAILED})  
-}
+
 
 export const employeeDelete = ({id}) => {
   let URL = BASE_URL + `/delete/${id}`;

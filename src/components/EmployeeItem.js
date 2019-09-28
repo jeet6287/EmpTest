@@ -16,9 +16,9 @@ class EmployeeItem extends Component {
              <Card>
                 <CardSection>
                     <Image 
-                    style = {Styles.image}
-                    source={require('../../assets/user.png')} />
-                    <Text style = {Styles.text}>{employee_name}</Text>
+                      style = {Styles.image}
+                      source={require('../../assets/user_img.png')} />
+                    <Text style = {Styles.text}>{employee_name}</Text> 
                 </CardSection>
                 </Card>
             </TouchableOpacity>

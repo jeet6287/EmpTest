@@ -40,7 +40,7 @@ class EmployeeEditPage extends Component {
     render(){
         return(
           <Card>
-             <EmployeeDetails />    
+             <EmployeeDetails isEdit = {false}/>    
              <CardSection>
                 <Button onPress = {()=> this.setState({modalPopUp: !this.state.modalPopUp})}>
                   Remove Employee

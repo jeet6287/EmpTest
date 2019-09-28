@@ -7,11 +7,11 @@ import {  CardSection , Input } from './common';
 
 class EmployeeDetails extends Component {
   render(){
-    console.log("DEATILS PAGE PROPS ",this.props); 
     return(
       <View>
         <CardSection>
            <Input
+            isEditable = {this.props.isEdit}
             label = 'Name'
             placeholder = 'employee name'
             value = {this.props.employee_name}
@@ -21,6 +21,7 @@ class EmployeeDetails extends Component {
 
         <CardSection>
           <Input
+           isEditable = {this.props.isEdit}
            label = 'Salary'
            placeholder = '000000$'
            value = {this.props.employee_salary}
@@ -30,6 +31,7 @@ class EmployeeDetails extends Component {
 
         <CardSection>
           <Input
+            isEditable = {this.props.isEdit}
             label = "Age"
             placeholder = '00'
             value = {this.props.employee_age}
@@ -42,7 +44,6 @@ class EmployeeDetails extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log("MAP STATE TO PROPS = 222",state);
   let {employee_name,employee_salary,employee_age} = state.employeeForm;
   return {employee_name,employee_salary,employee_age};
 }

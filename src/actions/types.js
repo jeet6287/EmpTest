@@ -1,4 +1,3 @@
-export const GET_CURRENT_USER = 'get_current_user';
 export const EMPLOYEES_FETCH_SUCCESS = 'employees_fetch_success';
 export const EMPLOYEES_FETCH_FAILED = 'employees_fetch_failed';
 export const EMPLOYEE_CREATE = 'employee_create';
