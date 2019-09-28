@@ -8,8 +8,8 @@ import EmployeeItem from './EmployeeItem';
 
 class EmployeeLists extends Component {
 
-    UNSAFE_componentWillMount(){
-       this.props.employeesFetch(); 
+    componentWillMount(){
+       this.props.employeesFetch();  
     }
 
     renderEmployees(){

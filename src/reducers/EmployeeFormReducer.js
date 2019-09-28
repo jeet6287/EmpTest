@@ -1,8 +1,8 @@
 import {
   EMPLOYEE_UPDATE ,
   EMPLOYEE_FORM_RESET,
-  EMPLOYEE_CREATE_FAILED
-  
+  EMPLOYEE_CREATE_FAILED,
+  EMPLOYEE_DELETE_FAILED
 } from '../actions/types';
 
 const INITIAL_STATE = {employee_name:'', employee_salary:'', employee_age:'',error:'',loading:''}
@@ -12,7 +12,9 @@ const INITIAL_STATE = {employee_name:'', employee_salary:'', employee_age:'',err
       case EMPLOYEE_UPDATE:
          return {...state , [action.payload.prop]:action.payload.value }
       case EMPLOYEE_CREATE_FAILED: 
-         return {...state , error:'Something went wrong.Employee Not Created.'}      
+         return {...state , error:'Something went wrong.Employee Not Created.'}   
+      case EMPLOYEE_DELETE_FAILED:
+            return { ...state, error:'Employee Not Deleted.'}       
       case EMPLOYEE_FORM_RESET:
          return INITIAL_STATE;
       default:

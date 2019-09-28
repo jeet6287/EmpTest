@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import { connect } from 'react-redux';
 import {Actions} from 'react-native-router-flux';
-import { empoloyeeCreate , resetFormData} from '../actions';
+import { employeeFormUpdate, empoloyeeCreate , resetFormData} from '../actions';
 import { Card , CardSection , Button, ErrorMsg } from './common';
 import EmployeeDetails from './EmployeeDetails';
 
@@ -37,14 +37,14 @@ class CreateEmployee extends Component {
   render(){
     return(
       <Card>
-        <EmployeeDetails />  
+        <EmployeeDetails {...this.props}/>  
         {this.renderErrorMsg()}
         {
           this.props.error ?
           <CardSection>
-          <Button onPress = {this.okPressed.bind(this)}>
-            Ok
-          </Button>
+           <Button onPress = {this.okPressed.bind(this)}>
+              Ok
+            </Button>
        </CardSection> :
                    <CardSection>
                    <Button onPress = {this.onButtonPressed.bind(this)}>
@@ -63,4 +63,4 @@ const mapStateToProps = (state) => {
   return {employee_name,employee_salary,employee_age,error} 
 }
 
-export default connect(mapStateToProps,{empoloyeeCreate,resetFormData})(CreateEmployee);
+export default connect(mapStateToProps,{employeeFormUpdate,empoloyeeCreate,resetFormData})(CreateEmployee);

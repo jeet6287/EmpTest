@@ -53,8 +53,6 @@ const createEmpSuccess = (dispatch,emp) => {
   Actions.employeeLists({type:'reset'})
 }
 
-
-
 export const employeeDelete = ({id}) => {
   let URL = BASE_URL + `/delete/${id}`;
   return (dispatch) => {
@@ -64,9 +62,9 @@ export const employeeDelete = ({id}) => {
     .then(()=>{
       dispatch({type:EMPLOYEE_DELETE})
       Actions.employeeLists({type:'reset'})
-    }).catch((err) => {
-      return {type:EMPLOYEE_DELETE_FAILED , payload:'Delete Opeartion Failed'}
-    });
+    }).catch((err) => { 
+      console.log("DELETE FAILED");
+      return dispatch({type:EMPLOYEE_DELETE_FAILED})});
   }
 }
 

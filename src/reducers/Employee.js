@@ -2,8 +2,7 @@ import {
   EMPLOYEE_CREATE, 
   EMPLOYEES_FETCH_SUCCESS,
   EMPLOYEES_FETCH_FAILED,
-  EMPLOYEE_DELETE,
-  EMPLOYEE_DELETE_FAILED
+  EMPLOYEE_DELETE
 } from '../actions/types';
 
 const INITIAL_STATE = { error:'',loading:true} 
@@ -16,8 +15,6 @@ export default (state = INITIAL_STATE , action) => {
          return {...state, loading:false, error:'Something went wrong.Employees Not Found.'};     
       case EMPLOYEE_DELETE:
             return {...state, error:'',loading:true}; 
-      case EMPLOYEE_DELETE_FAILED:
-            return { ...state,error:'Employee Not Deleted.'} 
       case EMPLOYEE_CREATE:
           return {...state, error:'',loading:true}; 
            
